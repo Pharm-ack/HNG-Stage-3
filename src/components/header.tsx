@@ -12,7 +12,7 @@ import { MdMenu } from "react-icons/md";
 export default function Header() {
   const { cartItemCount } = useCart();
   return (
-    <header className="sticky bg-white shadow-md">
+    <header className="sticky top-0 z-40 bg-white shadow-md">
       <div className="mx-auto flex max-w-screen-xl flex-col px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-3 md:py-1">
           <div className="flex-1 md:flex md:items-center md:gap-12">

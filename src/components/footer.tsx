@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Logo from "./logo";
 import Link from "next/link";
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
 
 const footerLinks = [
   {
@@ -87,8 +89,19 @@ export default function Footer() {
               </a>
             </p>
 
-            <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-              &copy; 2022 Company Name
+            <p className="mt-4 flex items-center justify-center gap-2 text-sm text-gray-500 sm:order-first sm:mt-0">
+              <span>
+                <FaFacebook className="h-5 w-5" />
+              </span>
+              <span>
+                <FaTwitter className="h-5 w-5" />
+              </span>
+              <span>
+                <AiFillInstagram className="h-5 w-5" />
+              </span>
+              <span>
+                <FaLinkedin className="h-5 w-5" />
+              </span>
             </p>
           </div>
         </div>

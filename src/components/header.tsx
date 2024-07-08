@@ -1,9 +1,16 @@
+"use client";
 import Search from "./search";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import Logo from "./logo";
+import { useCart } from "@/context/cart-context";
+import Link from "next/link";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Button } from "./ui/button";
+import { MdMenu } from "react-icons/md";
 
 export default function Header() {
+  const { cartItemCount } = useCart();
   return (
     <header className="bg-white shadow-md">
       <div className="mx-auto flex max-w-screen-xl flex-col px-4 sm:px-6 lg:px-8">
@@ -17,7 +24,7 @@ export default function Header() {
               <ul className="flex items-center gap-6 text-sm">
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="text-[#191919] transition hover:text-[#8d5807]"
                     href="#"
                   >
                     Help
@@ -26,7 +33,7 @@ export default function Header() {
 
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="text-[#191919] transition hover:text-[#8d5807]"
                     href="#"
                   >
                     Join
@@ -35,7 +42,7 @@ export default function Header() {
 
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="text-[#191919] transition hover:text-[#8d5807]"
                     href="#"
                   >
                     Sign In
@@ -46,28 +53,83 @@ export default function Header() {
 
             <div className="flex items-center gap-3">
               <span className="flex gap-3 md:hidden">
-                <CiHeart />
-
-                <IoCartOutline />
-              </span>
-              <div className="block md:hidden">
-                <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
+                <button>
+                  <CiHeart className="h-5 w-5 font-bold" />
                 </button>
-              </div>
+
+                <Link href="/cart" className="relative">
+                  <IoCartOutline className="h-5 w-5" />
+                  {cartItemCount > 0 && (
+                    <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+                      {cartItemCount}
+                    </span>
+                  )}
+                </Link>
+              </span>
+
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button className="md:hidden" size="icon" variant="ghost">
+                    <MdMenu className="h-7 w-7" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="top" className="h-[320px] w-full px-6">
+                  <nav className="flex flex-col text-sm sm:text-lg">
+                    <Logo />
+                    <ul className="flex flex-col items-center justify-center gap-y-5">
+                      <li>
+                        <a
+                          className="text-[#191919] transition hover:text-[#8d5807]"
+                          href="#"
+                        >
+                          About
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="text-[#191919] transition hover:text-[#8d5807]"
+                          href="#"
+                        >
+                          Blog
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="text-[#191919] transition hover:text-[#8d5807]"
+                          href="#"
+                        >
+                          Shipping & Returns
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="text-[#191919] transition hover:text-[#8d5807]"
+                          href="#"
+                        >
+                          Contact Us
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="text-[#191919] transition hover:text-[#8d5807]"
+                          href="#"
+                        >
+                          Help
+                        </a>
+                      </li>
+                    </ul>
+                    <div className="mt-5 flex items-center justify-between gap-x-3">
+                      <Button className="w-[150px] rounded-md bg-[#E0DDDD] text-center text-[#191919]">
+                        Join Us
+                      </Button>
+                      <Button className="w-[150px] rounded-md bg-[#fa9c11] text-center">
+                        {" "}
+                        Sign In
+                      </Button>
+                    </div>
+                  </nav>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>
@@ -79,38 +141,58 @@ export default function Header() {
             <ul className="flex items-center gap-6 text-sm">
               <li>
                 <a
-                  className="text-gray-500 transition hover:text-gray-500/75"
+                  className="text-[#191919] transition hover:text-[#8d5807]"
                   href="#"
                 >
-                  Help
+                  About
                 </a>
               </li>
 
               <li>
                 <a
-                  className="text-gray-500 transition hover:text-gray-500/75"
+                  className="text-[#191919] transition hover:text-[#8d5807]"
                   href="#"
                 >
-                  Join
+                  Blog
                 </a>
               </li>
 
               <li>
                 <a
-                  className="text-gray-500 transition hover:text-gray-500/75"
+                  className="text-[#191919] transition hover:text-[#8d5807]"
                   href="#"
                 >
-                  Sign In
+                  Shipping & Returns
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-[#191919] transition hover:text-[#8d5807]"
+                  href="#"
+                >
+                  Contact Us
                 </a>
               </li>
             </ul>
           </nav>
           <div className="items-center justify-center gap-3 md:flex">
-            <Search />
-            <span className="hidden gap-3 sm:flex">
-              <CiHeart />
+            <div className="w-full">
+              <Search />
+            </div>
+            <span className="hidden gap-3 min-[770px]:flex">
+              <button>
+                <CiHeart className="h-5 w-5" />
+              </button>
 
-              <IoCartOutline />
+              <Link href="/cart" className="relative">
+                <IoCartOutline className="h-5 w-5" />
+
+                {cartItemCount > 0 && (
+                  <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+                    {cartItemCount}
+                  </span>
+                )}
+              </Link>
             </span>
           </div>
         </div>

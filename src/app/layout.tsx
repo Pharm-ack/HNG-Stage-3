@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/header";
 import Announcement from "@/components/announcement";
 import Footer from "@/components/footer";
+import { CartProvider } from "../context/cart-context";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +23,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Announcement />
-        <Header />
-        {children}
-        <Footer />
+        <CartProvider>
+          <Header />
+          {children}
+          <Toaster position="top-right" />
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

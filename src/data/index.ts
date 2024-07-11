@@ -17,8 +17,8 @@ export const products = [
     image: [
       "/product1.png",
       "/Tproduct1A.png",
-      "Tproduct1B.png",
-      "Tproduct1C.png",
+      "/Tproduct1B.png",
+      "/Tproduct1C.png",
     ],
   },
   {
@@ -65,7 +65,7 @@ export const products = [
     image: [
       "/product5.png",
       "/Hproduct5A.png",
-      "Hproduct5B.png",
+      "/Hproduct5B.png",
       "/Hproduct5C.png",
     ],
   },

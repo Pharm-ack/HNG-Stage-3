@@ -77,7 +77,7 @@ export default function Component() {
                   alt={item.name}
                   width={100}
                   height={100}
-                  className="w-[100px] rounded-md object-cover"
+                  className="w-[100px] sm:w-[150px] rounded-md object-cover"
                 />
                 <div className="grid flex-1 gap-4">
                   <div className="sm:text-medium flex items-center justify-between text-sm">

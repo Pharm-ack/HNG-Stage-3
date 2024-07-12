@@ -30,113 +30,135 @@ export default function Component() {
   const tax = subtotal * 0.08;
   const total = subtotal + tax + shipping;
   return (
-    <div className="mx-auto max-w-5xl flex-col px-4 py-12 sm:px-6 lg:px-8">
-      <span className="text-grey-600 mb-5 text-sm">
+   <div className="mx-auto flex max-w-screen-xl flex-col px-4 pb-14 pt-10 sm:px-6 lg:px-8">
+      <span className="text-grey-600 mb-4 text-sm">
         <Link href="/">Home</Link> &gt;{" "}
         {pathName === "/payment" ? "Payment" : ""}
       </span>
       <h1 className="mb-8 text-2xl font-bold text-gray-600 sm:mb-6">Payment</h1>
-      <div className="flex">
-        <div className="flex flex-col gap-8 md:flex-row md:gap-12">
-          <div className="flex flex-col gap-6 md:order-2 md:w-1/3">
-            <Card>
-              <CardHeader>
-                <CardTitle className="uppercase">Order Summary</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-col gap-4">
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">Subtotal</span>
-                      <span>{formatPrice(subtotal)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">Shipping</span>
-                      <span>{formatPrice(shipping)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">Tax</span>
-                      <span>{formatPrice(tax)}</span>
-                    </div>
+      <div className="flex flex-col gap-8 md:flex-row md:gap-12">
+        <div className="flex flex-grow flex-col gap-6 md:order-2 md:w-1/3">
+          <Card>
+            <CardHeader>
+              <CardTitle className="uppercase">Order Summary</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium">Subtotal</span>
+                    <span>{formatPrice(subtotal)}</span>
                   </div>
-                  <Separator />
-                  <div className="flex items-center justify-between text-lg font-medium">
-                    <span>Total</span>
-                    <span>{formatPrice(total)}</span>
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium">Shipping</span>
+                    <span>{formatPrice(shipping)}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium">Tax</span>
+                    <span>{formatPrice(tax)}</span>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-          <div className="flex flex-col gap-6 md:order-1 md:w-2/3">
-            <Card>
-              <CardHeader>
-                <CardTitle className="uppercase">Contact Info</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-4 md:flex-row">
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="email">Email</Label>
+                <Separator />
+                <div className="flex items-center justify-between text-lg font-medium">
+                  <span>Total</span>
+                  <span>{formatPrice(total)}</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        <div className="flex flex-col gap-6 md:order-1 md:w-2/3">
+          <Card>
+            <CardHeader>
+              <CardTitle className="uppercase">Contact Info</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-4 md:flex-row">
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" placeholder="Enter your email" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="phone">Phone Number</Label>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="uppercase">Shipping Address</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="name">Name</Label>
+                <Input id="name" placeholder="Enter your name" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" placeholder="Enter your email" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="address">Address</Label>
+                <Textarea id="address" placeholder="Enter your address" />
+              </div>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="flex flex-col gap-2 sm:w-1/2">
+                  <Label htmlFor="city">City</Label>
+                  <Input id="city" placeholder="Enter your city" />
+                </div>
+                <div className="flex flex-col gap-2 sm:w-1/2">
+                  <Label htmlFor="state">State</Label>
+                  <Input id="state" placeholder="Enter your state" />
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="flex flex-col gap-2 sm:w-1/2">
+                  <Label htmlFor="zip">Zip Code</Label>
                   <Input
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email"
+                    id="zip"
+                    type="number"
+                    placeholder="Enter your zip code"
                   />
                 </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="Enter your phone number"
-                  />
+                <div className="flex flex-col gap-2 sm:w-1/2">
+                  <Label htmlFor="country">Country</Label>
+                  <Select>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a country" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="us">United States</SelectItem>
+                      <SelectItem value="ca">Canada</SelectItem>
+                      <SelectItem value="mx">Mexico</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="uppercase">Shipping Address</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" placeholder="Enter your name" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email"
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="address">Address</Label>
-                  <Textarea id="address" placeholder="Enter your address" />
-                </div>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <div className="flex flex-col gap-2 sm:w-1/2">
-                    <Label htmlFor="city">City</Label>
-                    <Input id="city" placeholder="Enter your city" />
-                  </div>
-                  <div className="flex flex-col gap-2 sm:w-1/2">
-                    <Label htmlFor="state">State</Label>
-                    <Input id="state" placeholder="Enter your state" />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <div className="flex flex-col gap-2 sm:w-1/2">
-                    <Label htmlFor="zip">Zip Code</Label>
-                    <Input
-                      id="zip"
-                      type="number"
-                      placeholder="Enter your zip code"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-2 sm:w-1/2">
-                    <Label htmlFor="country">Country</Label>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="uppercase">Payment Information</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="card-number">Card Number</Label>
+                <Input
+                  id="card-number"
+                  type="number"
+                  placeholder="Enter your card number"
+                />
+              </div>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="flex flex-col gap-2 sm:w-1/2">
+                  <Label htmlFor="expiration">Expiration Date</Label>
+                  <div className="flex gap-2">
                     <Select>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select a country" />
+                        <SelectValue placeholder="Month" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="us">United States</SelectItem>
@@ -144,73 +166,37 @@ export default function Component() {
                         <SelectItem value="mx">Mexico</SelectItem>
                       </SelectContent>
                     </Select>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Year" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="01">January</SelectItem>
+                        <SelectItem value="02">February</SelectItem>
+                        <SelectItem value="03">March</SelectItem>
+                        <SelectItem value="04">April</SelectItem>
+                        <SelectItem value="05">May</SelectItem>
+                        <SelectItem value="06">June</SelectItem>
+                        <SelectItem value="07">July</SelectItem>
+                        <SelectItem value="08">August</SelectItem>
+                        <SelectItem value="09">September</SelectItem>
+                        <SelectItem value="10">October</SelectItem>
+                        <SelectItem value="11">November</SelectItem>
+                        <SelectItem value="12">December</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="uppercase">Payment Information</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="card-number">Card Number</Label>
-                  <Input
-                    id="card-number"
-                    type="number"
-                    placeholder="Enter your card number"
-                  />
+                <div className="flex flex-col gap-2 sm:w-1/2">
+                  <Label htmlFor="cvc">CVC</Label>
+                  <Input id="cvc" type="number" placeholder="Enter your CVC" />
                 </div>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <div className="flex flex-col gap-2 sm:w-1/2">
-                    <Label htmlFor="expiration">Expiration Date</Label>
-                    <div className="flex gap-2">
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Month" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="us">United States</SelectItem>
-                          <SelectItem value="ca">Canada</SelectItem>
-                          <SelectItem value="mx">Mexico</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Year" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="01">January</SelectItem>
-                          <SelectItem value="02">February</SelectItem>
-                          <SelectItem value="03">March</SelectItem>
-                          <SelectItem value="04">April</SelectItem>
-                          <SelectItem value="05">May</SelectItem>
-                          <SelectItem value="06">June</SelectItem>
-                          <SelectItem value="07">July</SelectItem>
-                          <SelectItem value="08">August</SelectItem>
-                          <SelectItem value="09">September</SelectItem>
-                          <SelectItem value="10">October</SelectItem>
-                          <SelectItem value="11">November</SelectItem>
-                          <SelectItem value="12">December</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2 sm:w-1/2">
-                    <Label htmlFor="cvc">CVC</Label>
-                    <Input
-                      id="cvc"
-                      type="number"
-                      placeholder="Enter your CVC"
-                    />
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Button size="lg" className="w-full">
-              Place Order
-            </Button>
-          </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Button size="lg" className="w-full">
+            Place Order
+          </Button>
         </div>
       </div>
     </div>

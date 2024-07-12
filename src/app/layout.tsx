@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="!scroll-smooth flex flex-col min-h-screen border border-red">
+    <html lang="en" className="!scroll-smooth flex flex-col min-h-screen border border-red-500">
       <body className={`${inter.className}`}>
         <Announcement />
         <CartProvider>

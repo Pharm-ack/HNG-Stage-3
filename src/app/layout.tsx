@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body className={inter.className}>
+      <body className={`${inter.className}flex flex-col`}>
         <Announcement />
         <CartProvider>
           <Header />

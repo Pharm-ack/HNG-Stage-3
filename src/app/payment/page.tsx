@@ -37,7 +37,7 @@ export default function Component() {
       </span>
       <h1 className="mb-8 text-2xl font-bold text-gray-600 sm:mb-6">Payment</h1>
       <div className="flex flex-col gap-8 md:flex-row md:gap-12">
-        <div className="flex flex-grow flex-col gap-6 md:order-2 md:w-1/3">
+        <div className="flex flex-grow flex-col gap-6 md:order-2 md:w-1/2">
           <Card>
             <CardHeader>
               <CardTitle className="uppercase">Order Summary</CardTitle>
@@ -67,7 +67,7 @@ export default function Component() {
             </CardContent>
           </Card>
         </div>
-        <div className="flex flex-col gap-6 md:order-1 md:w-2/3">
+        <div className="flex flex-col gap-6 md:order-1 md:w-1/2">
           <Card>
             <CardHeader>
               <CardTitle className="uppercase">Contact Info</CardTitle>

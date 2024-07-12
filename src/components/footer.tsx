@@ -24,7 +24,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="flex mt-auto bg-[#FAFAFA]">
+    <footer className="mt-auto bg-[#FAFAFA]">
       <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between md:flex-row md:items-center">
           <div className="flex flex-col">

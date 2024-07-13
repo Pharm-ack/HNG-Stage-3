@@ -52,7 +52,7 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <span className="flex gap-3 md:hidden">
+              <div className="flex gap-3 md:hidden">
                 <button>
                   <CiHeart className="h-5 w-5 font-bold" />
                 </button>
@@ -65,7 +65,7 @@ export default function Header() {
                     </span>
                   )}
                 </Link>
-              </span>
+              </div>
 
               <Sheet>
                 <SheetTrigger asChild>
@@ -179,7 +179,7 @@ export default function Header() {
             <div className="w-full">
               <Search />
             </div>
-            <span className="hidden gap-3 min-[770px]:flex">
+            <div className="hidden gap-3 min-[770px]:flex">
               <button>
                 <CiHeart className="h-5 w-5" />
               </button>
@@ -193,7 +193,7 @@ export default function Header() {
                   </span>
                 )}
               </Link>
-            </span>
+            </div>
           </div>
         </div>
       </div>

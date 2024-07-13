@@ -1,8 +1,47 @@
 "use client";
-
-import { createContext, ReactNode, useContext, useState } from "react";
-import { Product } from "@/data";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 import { toast } from "sonner";
+
+interface Price {
+  amount: number;
+  currency: string;
+  // Add other price properties as needed
+}
+
+interface Category {
+  // Define category properties
+  id: string;
+  name: string;
+  // Add other category properties as needed
+}
+
+interface Photo {
+  url: string;
+  is_default: boolean;
+  // Add other photo properties as needed
+}
+
+interface Product {
+  id: string;
+  name: string;
+  description: string | null;
+  available_quantity: number;
+  current_price: Price[] | number;
+  categories: Category[];
+  is_available: boolean;
+  photos: Photo[];
+  url_slug: string;
+  unique_id: string;
+  date_created: string;
+  last_updated: string;
+  selling_price: number | null;
+}
 
 interface CartItem extends Product {
   quantity: number;
@@ -11,18 +50,33 @@ interface CartItem extends Product {
 interface CartContextType {
   cart: CartItem[];
   addToCart: (product: Product) => void;
-  removeFromCart: (productId: number) => void;
+  removeFromCart: (productId: string) => void;
   cartItemCount: number;
-  increaseQuantity: (productId: number) => void;
-  decreaseQuantity: (productId: number) => void;
+  increaseQuantity: (productId: string) => void;
+  decreaseQuantity: (productId: string) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+const CART_STORAGE_KEY = "shopping-cart";
+
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [isClient, setIsClient] = useState(false);
 
-  console.log(cart);
+  useEffect(() => {
+    setIsClient(true);
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isClient) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart, isClient]);
 
   const addToCart = (product: Product) => {
     const isProductInCart = cart.some((item) => item.id === product.id);
@@ -31,9 +85,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
     setCart((currentCart) => [...currentCart, { ...product, quantity: 1 }]);
+    toast.success("Item added to cart");
   };
 
-  const increaseQuantity = (productId: number) => {
+  const increaseQuantity = (productId: string) => {
     setCart((currentCart) =>
       currentCart.map((item) =>
         item.id === productId ? { ...item, quantity: item.quantity + 1 } : item,
@@ -41,7 +96,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  const decreaseQuantity = (productId: number) => {
+  const decreaseQuantity = (productId: string) => {
     setCart((currentCart) =>
       currentCart.map((item) =>
         item.id === productId
@@ -53,10 +108,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
-  const removeFromCart = (productId: number) => {
+  const removeFromCart = (productId: string) => {
     setCart((currentCart) =>
       currentCart.filter((item) => item.id !== productId),
     );
+    toast.success("Item removed from cart");
   };
 
   return (

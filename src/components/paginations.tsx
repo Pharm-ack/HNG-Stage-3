@@ -31,7 +31,7 @@ export default function Paginations({ totalPages }: { totalPages: number }) {
   };
 
   return (
-    <div className="flex">
+    <div className="flex pt-7">
       <Pagination>
         <PaginationContent>
           <PaginationItem>

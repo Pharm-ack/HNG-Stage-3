@@ -1,21 +1,19 @@
 import { Suspense } from "react";
-import { getProducts } from "@/lib/api";
+
 import Collections from "./collections";
 import { Loading } from "./loading";
-
-const PAGE_SIZE = 10;
+import { getProducts } from "@/actions/actions";
 
 interface ProductCollectionProps {
   searchParams: { page?: string; category?: string };
 }
 
-export default function ProductCollection({
+export default async function ProductCollection({
   searchParams,
 }: ProductCollectionProps) {
   const currentPage = parseInt(searchParams.page || "1");
   const activeTab = searchParams.category || "All";
-
-  const productsData = getProducts(currentPage, PAGE_SIZE, activeTab);
+  const products = await getProducts(currentPage.toString(), "10", activeTab);
 
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -30,7 +28,7 @@ export default function ProductCollection({
         </div>
 
         <Suspense fallback={<Loading />}>
-          <Collections productsPromise={productsData} activeTab={activeTab} />
+          <Collections products={products} activeTab={activeTab} />
         </Suspense>
       </div>
     </div>

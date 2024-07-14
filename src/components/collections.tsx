@@ -15,19 +15,14 @@ const collections = [
 ];
 
 const PAGE_SIZE = 10;
-
 interface CollectionsProps {
-  productsPromise: Promise<ProductsResponse>;
+  products: ProductsResponse; // Change this from Promise<ProductsResponse>
   activeTab: string;
 }
 
-export default function Collections({
-  productsPromise,
-  activeTab,
-}: CollectionsProps) {
+export default function Collections({ products, activeTab }: CollectionsProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const products = use(productsPromise);
 
   const filteredProducts = products.items.filter((product) => {
     if (activeTab === "All") return true;

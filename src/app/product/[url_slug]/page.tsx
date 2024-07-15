@@ -73,8 +73,8 @@ const ProductDetail = () => {
       : null;
 
   return (
-    <div className="pt-16">
-      <div className="mx-auto grid max-w-screen-xl items-start gap-5 px-4 pb-14 pt-10 sm:px-6 md:grid-cols-2 lg:gap-6 lg:px-8">
+    
+      <div className="mx-auto grid max-w-screen-xl items-start gap-5 px-4 pb-14 pt-14 sm:px-6 md:grid-cols-2 lg:gap-6 lg:px-8">
         <div className="grid items-start gap-4 md:gap-10">
           <div className="grid gap-4">
             {defaultPhoto && (
@@ -175,7 +175,6 @@ const ProductDetail = () => {
         </div>
         <Reviews className="md:hidden" />
       </div>
-    </div>
   );
 };
 

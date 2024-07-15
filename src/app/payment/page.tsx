@@ -86,6 +86,7 @@ export default function Component() {
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="email">Email</Label>
                     <Input
+                      required
                       id="email"
                       type="email"
                       placeholder="Enter your email"
@@ -94,6 +95,7 @@ export default function Component() {
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input
+                      required
                       id="phone"
                       type="tel"
                       placeholder="Enter your phone number"
@@ -108,11 +110,12 @@ export default function Component() {
                 <CardContent className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Enter your name" />
+                    <Input id="name" required placeholder="Enter your name" />
                   </div>
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="email">Email</Label>
                     <Input
+                      required
                       id="email"
                       type="email"
                       placeholder="Enter your email"
@@ -120,22 +123,23 @@ export default function Component() {
                   </div>
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="address">Address</Label>
-                    <Textarea id="address" placeholder="Enter your address" />
+                    <Textarea required id="address" placeholder="Enter your address" />
                   </div>
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <div className="flex flex-col gap-2 sm:w-1/2">
                       <Label htmlFor="city">City</Label>
-                      <Input id="city" placeholder="Enter your city" />
+                      <Input required id="city" placeholder="Enter your city" />
                     </div>
                     <div className="flex flex-col gap-2 sm:w-1/2">
                       <Label htmlFor="state">State</Label>
-                      <Input id="state" placeholder="Enter your state" />
+                      <Input required id="state" placeholder="Enter your state" />
                     </div>
                   </div>
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <div className="flex flex-col gap-2 sm:w-1/2">
                       <Label htmlFor="zip">Zip Code</Label>
                       <Input
+                        required
                         id="zip"
                         type="number"
                         placeholder="Enter your zip code"
@@ -167,6 +171,7 @@ export default function Component() {
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="card-number">Card Number</Label>
                     <Input
+                      required
                       id="card-number"
                       type="number"
                       placeholder="Enter your card number"
@@ -210,6 +215,7 @@ export default function Component() {
                     <div className="flex flex-col gap-2 sm:w-1/2">
                       <Label htmlFor="cvc">CVC</Label>
                       <Input
+                        required
                         id="cvc"
                         type="number"
                         placeholder="Enter your CVC"

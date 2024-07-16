@@ -95,6 +95,7 @@ export default function Component() {
           </div>
           <div className="w-full md:order-1 md:w-1/2">
             <div className="flex flex-col gap-6">
+<<<<<<< HEAD
               <form onSubmit={handleSubmit(onSubmit)}>
                 <Card>
                   <CardHeader>
@@ -110,6 +111,73 @@ export default function Component() {
                         {...register("email", {
                           required: "Email is required",
                         })}
+=======
+              <Card>
+                <CardHeader>
+                  <CardTitle className="uppercase">Contact Info</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col gap-4 md:flex-row">
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      required
+                      id="email"
+                      type="email"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="phone">Phone Number</Label>
+                    <Input
+                      required
+                      id="phone"
+                      type="tel"
+                      placeholder="Enter your phone number"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="uppercase">Shipping Address</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input id="name" required placeholder="Enter your name" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      required
+                      id="email"
+                      type="email"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="address">Address</Label>
+                    <Textarea required id="address" placeholder="Enter your address" />
+                  </div>
+                  <div className="flex flex-col gap-4 sm:flex-row">
+                    <div className="flex flex-col gap-2 sm:w-1/2">
+                      <Label htmlFor="city">City</Label>
+                      <Input required id="city" placeholder="Enter your city" />
+                    </div>
+                    <div className="flex flex-col gap-2 sm:w-1/2">
+                      <Label htmlFor="state">State</Label>
+                      <Input required id="state" placeholder="Enter your state" />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-4 sm:flex-row">
+                    <div className="flex flex-col gap-2 sm:w-1/2">
+                      <Label htmlFor="zip">Zip Code</Label>
+                      <Input
+                        required
+                        id="zip"
+                        type="number"
+                        placeholder="Enter your zip code"
+>>>>>>> 9b920ee6cc721253b02d7dc4eb9299b8344f0441
                       />
                       {errors.email && (
                         <p className="text-sm text-red-500">
@@ -133,6 +201,7 @@ export default function Component() {
                         </p>
                       )}
                     </div>
+<<<<<<< HEAD
                   </CardContent>
                 </Card>
                 <Card>
@@ -224,6 +293,32 @@ export default function Component() {
                         <Select
                           onValueChange={(value) => setValue("country", value)}
                         >
+=======
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="uppercase">
+                    Payment Information
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="card-number">Card Number</Label>
+                    <Input
+                      required
+                      id="card-number"
+                      type="number"
+                      placeholder="Enter your card number"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-4 sm:flex-row">
+                    <div className="flex flex-col gap-2 sm:w-1/2">
+                      <Label htmlFor="expiration">Expiration Date</Label>
+                      <div className="flex gap-2">
+                        <Select>
+>>>>>>> 9b920ee6cc721253b02d7dc4eb9299b8344f0441
                           <SelectTrigger>
                             <SelectValue placeholder="Select a country" />
                           </SelectTrigger>
@@ -254,7 +349,12 @@ export default function Component() {
                     <div className="flex flex-col gap-2">
                       <Label htmlFor="card-number">Card Number</Label>
                       <Input
+<<<<<<< HEAD
                         id="card-number"
+=======
+                        required
+                        id="cvc"
+>>>>>>> 9b920ee6cc721253b02d7dc4eb9299b8344f0441
                         type="number"
                         placeholder="Enter your card number"
                         {...register("cardNumber", {
@@ -267,6 +367,7 @@ export default function Component() {
                         </p>
                       )}
                     </div>
+<<<<<<< HEAD
                     <div className="flex flex-col gap-4 sm:flex-row">
                       <div className="flex flex-col gap-2 sm:w-1/2">
                         <Label htmlFor="expiration">Expiration Date</Label>
@@ -340,6 +441,14 @@ export default function Component() {
                   Place Order
                 </Button>
               </form>
+=======
+                  </div>
+                </CardContent>
+              </Card>
+              <Button type="submit" size="lg" className="w-full">
+                Place Order
+              </Button>
+>>>>>>> 9b920ee6cc721253b02d7dc4eb9299b8344f0441
             </div>
           </div>
         </div>

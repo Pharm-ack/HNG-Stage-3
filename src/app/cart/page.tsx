@@ -75,6 +75,10 @@ export default function Component() {
   return (
     <div className="w-full bg-white">
       <div className="mx-auto max-w-screen-xl px-4 pb-14 pt-10 sm:px-6 lg:px-8">
+        <div className="text-grey-600 mb-5 flex items-center justify-start gap-x-2 text-sm">
+          <Link href="/">Home</Link> &gt;
+          {pathName === "/cart" ? "Cart" : ""}
+        </div>
         <h1 className="mb-8 text-2xl font-bold text-gray-600 sm:mb-6">
           Your Cart
         </h1>

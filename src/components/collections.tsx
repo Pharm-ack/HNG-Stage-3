@@ -1,6 +1,5 @@
 "use client";
 
-import { use } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ProductsResponse, Product } from "@/data";
 import CollectionList from "./collection-list";

@@ -224,7 +224,7 @@ export default function Component() {
                   </div>
                 </CardContent>
               </Card>
-              <Button size="lg" className="w-full">
+              <Button type="submit" size="lg" className="w-full">
                 Place Order
               </Button>
             </div>
